@@ -1,0 +1,236 @@
+:root {
+    --primary-pink: #FF94B2;
+    --accent-pink: #FF69B4;
+    --text-dark: #4A1E2A;
+    --text-light: #8B5F6D;
+    --border-light: #FFE4EC;
+    --soft-pink: #FFF8FA;
+}
+
+@page {
+    margin: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-dark);
+    background: white;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0;
+    padding: 25mm 30mm;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FF94B2 0%, #FF69B4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--text-light);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.stats-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--accent-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+    display: block;
+    line-height: 1;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.stat-item.highlight .stat-number {
+    font-size: 32px;
+}
+
+/* Content Section */
+.content-section {
+    margin: 35px 0;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.table-container {
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+thead {
+    background: var(--soft-pink);
+}
+
+th {
+    color: var(--text-dark);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border-light);
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.number-cell {
+    color: var(--text-light);
+    font-weight: 600;
+    width: 50px;
+}
+
+.username-cell {
+    color: var(--text-dark);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-style: italic;
+    border: 1px dashed var(--border-light);
+    border-radius: 8px;
+    background: var(--soft-pink);
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.generated-info {
+    color: var(--text-light);
+    font-size: 9px;
+}
+
+.credit {
+    color: var(--text-dark);
+    font-size: 9px;
+}
+
+.credit strong {
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--accent-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Print Optimizations */
+@media print {
+    body {
+        margin: 0;
+        padding: 15mm;
+    }
+    
+    .container {
+        padding: 0;
+    }
+    
+    .header {
+        page-break-after: avoid;
+    }
+    
+    .stats-section {
+        page-break-inside: avoid;
+    }
+    
+    table {
+        page-break-inside: auto;
+    }
+    
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
