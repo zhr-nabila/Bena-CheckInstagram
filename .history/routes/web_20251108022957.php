@@ -1,0 +1,13 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CheckController;
+use App\Http\Middleware\LocalizationMiddleware;
+
+Route::group(['middleware' => [LocalizationMiddleware::class]], function () {
+    Route::get('/', [CheckController::class, 'index'])->name('upload.page');
+    Route::post('/process', [CheckController::class, 'process'])->name('process.data');
+    Route::post('/download-pdf', [CheckController::class, 'downloadPdf'])->name('download.pdf');
+});
+
+Route::get('/switch-language/{locale}', [CheckController::class, 'switchLanguage'])->name('switch.language');
